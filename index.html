@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SuhasOS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="desktop" id="desktop">
+
+    <div class="taskbar">
+      <span class="os-name">SuhasOS</span>
+      <span id="clock"></span>
+    </div>
+
+    <div class="window" id="w1" style="top:60px; left:40px">
+      <div class="title-bar"><span>Welcome</span><button class="close-btn" onclick="closeWindow('w1')">X</button></div>
+      <div class="content">
+        <h2>Welcome to SuhasOS 2!</h2>
+        <p>Right-click the desktop to open the menu. Drag windows around!</p>
+      </div>
+    </div>
+
+    <div class="window" id="w2" style="top:60px; left:380px">
+      <div class="title-bar"><span>Notepad</span><button class="close-btn" onclick="closeWindow('w2')">X</button></div>
+      <div class="content">
+        <textarea placeholder="Type your notes here..."></textarea>
+      </div>
+    </div>
+
+    <div class="window" id="w3" style="top:300px; left:40px">
+      <div class="title-bar"><span>Calculator</span><button class="close-btn" onclick="closeWindow('w3')">X</button></div>
+      <div class="content">
+        <input id="calc-display" type="text" readonly placeholder="0">
+        <div class="calc-buttons">
+          <button onclick="calcInput('7')">7</button><button onclick="calcInput('8')">8</button><button onclick="calcInput('9')">9</button><button onclick="calcInput('/')">/</button>
+          <button onclick="calcInput('4')">4</button><button onclick="calcInput('5')">5</button><button onclick="calcInput('6')">6</button><button onclick="calcInput('*')">*</button>
+          <button onclick="calcInput('1')">1</button><button onclick="calcInput('2')">2</button><button onclick="calcInput('3')">3</button><button onclick="calcInput('-')">-</button>
+          <button onclick="calcInput('0')">0</button><button onclick="calcInput('.')">.</button><button onclick="calcEqual()">=</button><button onclick="calcClear()">C</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="window" id="w4" style="top:300px; left:380px">
+      <div class="title-bar"><span>Clock</span><button class="close-btn" onclick="closeWindow('w4')">X</button></div>
+      <div class="content" style="text-align:center">
+        <div id="big-clock" style="font-size:2rem;font-weight:bold;margin:10px 0"></div>
+        <div id="big-date" style="font-size:0.9rem;opacity:0.7"></div>
+      </div>
+    </div>
+
+    <div class="window" id="w5" style="top:60px; left:700px">
+      <div class="title-bar"><span>To-Do List</span><button class="close-btn" onclick="closeWindow('w5')">X</button></div>
+      <div class="content">
+        <div style="display:flex;gap:6px;margin-bottom:10px">
+          <input id="todo-input" type="text" placeholder="Add a task..." style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:6px;color:white;padding:6px;font-size:13px;outline:none">
+          <button onclick="addTodo()" style="background:rgba(167,139,250,0.4);border:none;border-radius:6px;color:white;padding:6px 12px;cursor:pointer;font-size:13px">Add</button>
+        </div>
+        <ul id="todo-list" style="list-style:none;padding:0;margin:0"></ul>
+      </div>
+    </div>
+
+    <div class="window" id="w6" style="top:300px; left:700px">
+      <div class="title-bar"><span>Wallpaper</span><button class="close-btn" onclick="closeWindow('w6')">X</button></div>
+      <div class="content">
+        <p style="margin-bottom:10px;font-size:13px">Pick a wallpaper:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <button class="wp-btn" onclick="setWallpaper('space')">Space</button>
+          <button class="wp-btn" onclick="setWallpaper('sunset')">Sunset</button>
+          <button class="wp-btn" onclick="setWallpaper('ocean')">Ocean</button>
+          <button class="wp-btn" onclick="setWallpaper('forest')">Forest</button>
+          <button class="wp-btn" onclick="setWallpaper('midnight')">Midnight</button>
+          <button class="wp-btn" onclick="setWallpaper('candy')">Candy</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="context-menu">
+      <div class="menu-item" onclick="openWindow('w1')">Welcome</div>
+      <div class="menu-item" onclick="openWindow('w2')">Notepad</div>
+      <div class="menu-item" onclick="openWindow('w3')">Calculator</div>
+      <div class="menu-item" onclick="openWindow('w4')">Clock</div>
+      <div class="menu-item" onclick="openWindow('w5')">To-Do List</div>
+      <div class="menu-item" onclick="openWindow('w6')">Wallpaper</div>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
